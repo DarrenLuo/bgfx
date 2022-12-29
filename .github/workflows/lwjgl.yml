@@ -60,7 +60,7 @@ jobs:
         with:
           fetch-depth: 3
       - run: |
-          git clone https://github.com/LWJGL-CI/bx.git ../bx
+          git clone https://github.com/DarrenLuo/bx.git ../bx
           git clone https://github.com/LWJGL-CI/bimg.git ../bimg
         name: Clone bx & bimg
       - run: |
