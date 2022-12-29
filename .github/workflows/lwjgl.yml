@@ -125,7 +125,7 @@ jobs:
           make -R -C .build/projects/gmake-linux-arm-gcc config=release64 CXX="aarch64-linux-gnu-g++" CC="aarch64-linux-gnu-gcc" CFLAGS="-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0" bgfx-shared-lib
           aarch64-linux-gnu-strip .build/linux64_arm_gcc/bin/libbgfx-shared-libRelease.so
         name: Build bgfx (arm64)
-        if: contains(matrix.ARCH, 'ppc64el')
+        if: contains(matrix.ARCH, 'arm64')
       - run: | #sudo ln -s /usr/lib/powerpc64le-linux-gnu/mesa/libGL.so.1 /usr/lib/libGL.so
           sed -i 's/strip -s/powerpc64le-linux-gnu-strip/' ../bx/scripts/toolchain.lua
           ../GENie/bin/linux/genie --with-shared-lib --gcc=linux-ppc-gcc gmake
