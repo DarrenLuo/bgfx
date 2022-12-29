@@ -172,7 +172,7 @@ jobs:
       - run: make -R -C .build/projects/gmake-linux config=release64 shaderc
         name: Build shaderc
         if: contains(matrix.ARCH, 'x64')
-      - run: aws s3 cp .build/${{matrix.OUTPUT_DIR}}/bin/libbgfx-shared-libRelease.so s3://lwjgl-build/nightly/linux/${{matrix.ARCH}}/libbgfx.so $S3_PARAMS
+      - run: aws s3 cp .build/${{matrix.OUTPUT_DIR}}/bin/libbgfx-shared-libRelease.so s3://darren-lwjgl-build/nightly/linux/${{matrix.ARCH}}/libbgfx.so $S3_PARAMS
         name: Upload artifact
       - run: |
           aws s3 cp .build/linux64_gcc/bin/geometrycRelease s3://lwjgl-build/nightly/linux/x64/bgfx-tools/geometryc $S3_PARAMS
@@ -181,8 +181,8 @@ jobs:
           aws s3 cp .build/linux64_gcc/bin/shadercRelease s3://lwjgl-build/nightly/linux/x64/bgfx-tools/shaderc $S3_PARAMS
         name: Upload tools
         if: contains(matrix.ARCH, 'x64')
-      - run: |
-          git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbgfx.so.git
-          aws s3 cp libbgfx.so.git s3://lwjgl-build/nightly/linux/${{matrix.ARCH}}/ $S3_PARAMS
-        name: Upload git revision
+#       - run: |
+#           git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbgfx.so.git
+#           aws s3 cp libbgfx.so.git s3://lwjgl-build/nightly/linux/${{matrix.ARCH}}/ $S3_PARAMS
+#         name: Upload git revision
   
