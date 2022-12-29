@@ -18,27 +18,28 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ARCH: [x64, arm32, arm64, powerpc64le]
+#         ARCH: [x64, arm32, arm64, powerpc64le]
+        ARCH: [powerpc64le]
         include:
           # -----
-          - ARCH: x64
-            runner: ubuntu-18.04
-            PACKAGES: libgl1-mesa-dev x11proto-dev libx11-dev
-            OUTPUT_DIR: linux64_gcc
+#           - ARCH: x64
+#             runner: ubuntu-18.04
+#             PACKAGES: libgl1-mesa-dev x11proto-dev libx11-dev
+#             OUTPUT_DIR: linux64_gcc
           # -----
-          - ARCH: arm32
-            runner: ubuntu-18.04
-            CROSS_ARCH: armhf
-            PACKAGES: gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf libc6-dev-armhf-cross
-            CROSS_PACKAGES: libgl1-mesa-dev:armhf x11proto-dev:armhf libx11-dev:armhf
-            OUTPUT_DIR: linux32_arm_gcc
+#           - ARCH: arm32
+#             runner: ubuntu-18.04
+#             CROSS_ARCH: armhf
+#             PACKAGES: gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf libc6-dev-armhf-cross
+#             CROSS_PACKAGES: libgl1-mesa-dev:armhf x11proto-dev:armhf libx11-dev:armhf
+#             OUTPUT_DIR: linux32_arm_gcc
           # -----
-          - ARCH: arm64
-            runner: ubuntu-18.04
-            CROSS_ARCH: arm64
-            PACKAGES: gcc-aarch64-linux-gnu g++-aarch64-linux-gnu libc6-dev-arm64-cross
-            CROSS_PACKAGES: libgl1-mesa-dev:arm64 x11proto-dev:arm64 libx11-dev:arm64
-            OUTPUT_DIR: linux64_arm_gcc
+#           - ARCH: arm64
+#             runner: ubuntu-18.04
+#             CROSS_ARCH: arm64
+#             PACKAGES: gcc-aarch64-linux-gnu g++-aarch64-linux-gnu libc6-dev-arm64-cross
+#             CROSS_PACKAGES: libgl1-mesa-dev:arm64 x11proto-dev:arm64 libx11-dev:arm64
+#             OUTPUT_DIR: linux64_arm_gcc
           # -----
           - ARCH: powerpc64le
             runner: ubuntu-18.04
