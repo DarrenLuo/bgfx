@@ -172,7 +172,7 @@ jobs:
       - run: make -R -C .build/projects/gmake-linux config=release64 shaderc
         name: Build shaderc
         if: contains(matrix.ARCH, 'x64')
-      - run: aws s3 cp .build/${{matrix.OUTPUT_DIR}}/bin/libbgfx-shared-libRelease.so s3://lwjgl-build/nightly/linux/${{matrix.ARCH}}/libbgfx.so $S3_PARAMS
+      - run: aws s3 cp .build/${{matrix.OUTPUT_DIR}}/bin/libbgfx-shared-libRelease.so s3://darren-lwjgl-build/nightly/linux/${{matrix.ARCH}}/libbgfx.so $S3_PARAMS
         name: Upload artifact
       - run: |
           aws s3 cp .build/linux64_gcc/bin/geometrycRelease s3://lwjgl-build/nightly/linux/x64/bgfx-tools/geometryc $S3_PARAMS
